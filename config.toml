@@ -11,7 +11,7 @@ canonifyurls        = true                              # Turns relative urls in
 [params]
     bloghead            = "NotABlog"                        # Full name shows on blog post pages
     firstname           = "cyql"                # First name shows in introduction on main page
-    tagline             = "Welcome to cyql!  A Virtual Standup Bot...currently under construction."       # Appears after the introduction
+    tagline             = "Welcome to cyql (STAGE)!  A Virtual Standup Bot...currently under construction."       # Appears after the introduction
     introheight         = "fullheight"                       # Input either 'medium' or 'large' or 'fullheight'
     themestyle          = "dark"                        # Choose 'light' or 'dark'
     avatar              = "images/MoreOfLess.png"             # Path to image in static folder eg. img/avatar.png, or comment out to remove
