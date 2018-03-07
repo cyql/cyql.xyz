@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: felicianotech/docker-hugo:0.36.1
+    working_directory: /ws
+    steps:
+      - checkout
+      - run:
+          command: git clone https://github.com/hivickylai/hugo-theme-introduction.git themes/introduction
+      - run:
+          name: "Run Hugo"
+          command: HUGO_ENV=production hugo -v -s /ws -t introduction 
+      - persist_to_workspace:
+          root: /ws
+          paths:
+            - .
+  deploy:
+    docker:
+      - image: devillex/docker-firebase
+    working_directory: /ws
+    steps:
+      - attach_workspace:
+          at: /ws
+      - run: firebase --project b6n-website deploy --only hosting
+
+workflows:
+  version: 2
+  build-test-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
