@@ -1,0 +1,18 @@
+name: cyql.xyz
+id: ari:cloud:compass:86574312-912a-4d9e-9ce4-3bf554fbdd9a:component/59f45847-f664-4787-b7f9-d248ad2c8ca6/886f9de0-e68f-4b2e-80ed-e0b4ee7ba29b
+description: Cyql website
+configVersion: 1
+typeId: SERVICE
+ownerId: null
+fields:
+  tier: 4
+links:
+  - name: null
+    type: REPOSITORY
+    url: https://github.com/cyql/cyql.xyz
+relationships:
+  DEPENDS_ON: []
+labels:
+  - language:javascript
+  - source:github
+customFields: null
