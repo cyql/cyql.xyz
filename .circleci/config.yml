@@ -1,4 +1,7 @@
 version: 2.1
+orbs:
+  compass: atlassian-labs/compass@0.1.3
+
 jobs:
   build:
     docker:
@@ -10,7 +13,7 @@ jobs:
           command: git clone https://github.com/hivickylai/hugo-theme-introduction.git themes/introduction
       - run:
           name: "Run Hugo"
-          command: HUGO_ENV=production hugo -v -s /ws -t introduction 
+          command: HUGO_ENV=production hugo -v -s /ws -t introduction
       - persist_to_workspace:
           root: /ws
           paths:
@@ -29,5 +32,9 @@ workflows:
     jobs:
       - build
       - deploy:
+          context:
+            - compass-integration-b6n
+          post-steps:
+            - compass/notify_deployment
           requires:
             - build
